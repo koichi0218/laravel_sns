@@ -14,3 +14,17 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+Route::get('/', 'PostController@index');
+Route::resource('posts', 'PostController');
+
+Route::resource('like', 'LikeController')->only([
+   'index', 'store', 'destroy' 
+]);
+
+Route::resource('follows', 'FollowController')->only([
+   'index', 'store', 'destroy' 
+]);
+Route::get('/follower', 'FollowController@followerIndex');
