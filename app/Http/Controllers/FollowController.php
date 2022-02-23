@@ -33,4 +33,9 @@ class FollowController extends Controller
           'title' => 'フォロワー一覧',
         ]);
     }
+    
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 }
