@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Post;
+use App\Http\Requests\PostRequest;
 
 class PostController extends Controller
 {
@@ -14,8 +16,11 @@ class PostController extends Controller
     //投稿一覧
     public function index()
     {
+        $user = \Auth::user();
+        $posts = $user->posts;
         return view('posts.index',[
            'title' => '投稿一覧', 
+           'posts' => $posts,
         ]);
     }
 
@@ -39,9 +44,15 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     //投稿追加処理
-    public function store(Request $request)
+    public function store(PostRequest $request)
     {
-        //
+        Post::create([
+           'user_id' => \Auth::user()->id,
+           'comment' => $request->comment,
+           'image' => '',
+        ]);
+        session()->flash('success', '投稿を追加しました');
+        return redirect()->route('posts.index');
     }
 
     /**
@@ -67,8 +78,10 @@ class PostController extends Controller
     //投稿編集
     public function edit($id)
     {
+        $post = Post::find($id);
         return view('posts.edit',[
            'title' => '投稿編集', 
+           'post' => $post,
         ]);
     }
 
@@ -80,9 +93,12 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     //投稿更新
-    public function update(Request $request, $id)
+    public function update(PostRequest $request, $id)
     {
-        //
+        $post = Post::find($id);
+        $post->update($request->only(['comment']));
+        session()->flash('success', '投稿を編集しました');
+        return redirect()->route('posts.index');
     }
 
     /**
