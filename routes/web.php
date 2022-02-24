@@ -20,7 +20,7 @@ Auth::routes();
 Route::get('/', 'PostController@index');
 Route::resource('posts', 'PostController');
 
-Route::resource('like', 'LikeController')->only([
+Route::resource('likes', 'LikeController')->only([
    'index', 'store', 'destroy' 
 ]);
 
