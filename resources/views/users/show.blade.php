@@ -4,18 +4,27 @@
  
 @section('content')
 <div class="container">
-    <div class="card mb-3">
-      <svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"/><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text></svg>
+  <div class="row d-block mx-auto">
+    <div class="card">
+      @if($user->image !== '')
+        <img class="bd-placeholder-img card-img-top" src="{{ \Storage::url($user->image) }}">
+      @else
+        <img src="{{ asset('images/no_user_image.png') }}">
+      @endif
       <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        <h5 class="card-title">{{$user->name}}</h5>
+        <p class="card-text">{{$user->profile}}</p>
       </div>
       <ul class="list-group list-group-flush">
         <li class="list-group-item">フォロー数</li>
         <li class="list-group-item">フォロワー数</li>
         <li class="list-group-item">いいね数</li>
       </ul>
+      <div class="text-right">
+        <a href="{{ route('users.edit')}}" role="button" class="btn btn-outline-info">プロフィール変更</a>
+        <a href="{{ route('users.edit_image')}}" role="button" class="btn btn-secondary">プロフィール画像変更</a>
+      </div>
     </div>
+  </div>
 </div>
 @endsection

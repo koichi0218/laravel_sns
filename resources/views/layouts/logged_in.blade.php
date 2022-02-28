@@ -14,7 +14,9 @@
           </a>
         </li>
         <li>
+          <a href="{{ route('users.show',\Auth::user()->id) }}">
           ユーザープロフィール
+          </a>
         </li>
         <li>ログアウト</li>
     </ul>
