@@ -38,6 +38,14 @@ class User extends Authenticatable
     ];
     
     public function posts(){
-        return $this->hasmany('App\Post');
+        return $this->hasMany('App\Post');
+    }
+    
+    public function likes(){
+        return $this->hasMany('App\Like');
+    }
+    
+    public function likeposts(){
+        return $this->belongsToMany('App\Post', 'likes');
     }
 }
