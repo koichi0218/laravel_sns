@@ -30,9 +30,7 @@ Route::resource('users', 'UserController')->only([
   'show',
 ]);
 
-Route::resource('likes', 'LikeController')->only([
-   'index', 'store', 'destroy' 
-]);
+Route::post('like', 'PostController@like')->name('reviews.like');
 
 Route::resource('follows', 'FollowController')->only([
    'index', 'store', 'destroy' 

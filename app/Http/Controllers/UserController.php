@@ -64,4 +64,9 @@ class UserController extends Controller
         session()->flash('success', '画像を変更しました');
         return redirect()->route('users.show', $user);
     }
+    
+     public function __construct()
+    {
+        $this->middleware('auth');
+    }
 }

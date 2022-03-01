@@ -9,7 +9,7 @@
           </a>
         </li>
         <li>
-          <a href="{{ route('likes.index') }}">
+          <a href="">
             いいねリスト
           </a>
         </li>
@@ -19,6 +19,7 @@
           </a>
         </li>
         <li>ログアウト</li>
+        <li>{{\Auth::user()->name}}</li>
     </ul>
 </header>
 @endsection
