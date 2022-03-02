@@ -31,6 +31,8 @@ Route::resource('users', 'UserController')->only([
 ]);
 
 Route::post('like', 'PostController@like')->name('reviews.like');
+Route::patch('/posts/{post}/toggle_like', 'PostController@toggleLike')->name('posts.toggle_like');
+
 
 Route::resource('follows', 'FollowController')->only([
    'index', 'store', 'destroy' 
