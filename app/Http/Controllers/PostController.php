@@ -166,27 +166,24 @@ class PostController extends Controller
     }
     
     
-    public function like(Request $request)
-{
-    $user_id = Auth::user()->id; //1.ログインユーザーのid取得
-    $post_id = $request->review_id; //2.投稿idの取得
-    $already_liked = Like::where('user_id', $user_id)->where('post_id', $post_id)->first(); //3.
-
-    if (!$already_liked) { //もしこのユーザーがこの投稿にまだいいねしてなかったら
-        $like = new Like; //4.Likeクラスのインスタンスを作成
-        $like->post_id = $post_id; //Likeインスタンスにreview_id,user_idをセット
-        $like->user_id = $user_id;
-        $like->save();
-    } else { //もしこのユーザーがこの投稿に既にいいねしてたらdelete
-        Like::where('post_id', $post_id)->where('user_id', $user_id)->delete();
-    }
-    //5.この投稿の最新の総いいね数を取得
-    $review_likes_count = Post::withCount('likes')->findOrFail($post_id)->likes_count;
-    $param = [
-        'review_likes_count' => $review_likes_count,
-    ];
-    return response()->json($param); //6.JSONデータをjQueryに返す
-}
+    public function toggleLike($id){
+          $user = \Auth::user();
+          $post = Post::find($id);
+ 
+          if($post->isLikedBy($user)){
+              // いいねの取り消し
+              $post->likes->where('user_id', $user->id)->first()->delete();
+              \Session::flash('success', 'いいねを取り消しました');
+          } else {
+              // いいねを設定
+              Like::create([
+                  'user_id' => $user->id,
+                  'post_id' => $post->id,
+              ]);
+              \Session::flash('success', 'いいねしました');
+          }
+          return redirect('/posts');
+      }
     
     public function __construct()
     {
