@@ -42,14 +42,10 @@
     <main role="main">
       <section class="jumbotron text-center">
         <div class="container">
-          <!-- <h1 class="jumbotron-heading">Album example</h1> -->
-          <h1 class="jumbotron-heading">アルバムページのサンプル</h1>
-          <!-- <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don't simply skip over it entirely.</p> -->
-          <p class="lead text-muted">内容や作成者など, 以下のコレクションに関する簡単な説明文を書きましょう。なるべく短く, わかりやすい文にしましょう。しかし短すぎると, 友達は見てくれないかもしれません。</p>
+          <h1 class="jumbotron-heading">タイトル</h1>
+          <p class="lead text-muted">内容や作成者など, 以下のコレクションに関する簡単な説明文を書きましょう。</p>
           <p>
-            <!-- <a href="#" class="btn btn-primary my-2">Main call to action</a> -->
             <a href="#" class="btn btn-primary my-2">メインアクション</a>
-            <!-- <a href="#" class="btn btn-secondary my-2">Secondary action</a> -->
             <a href="#" class="btn btn-secondary my-2">サブアクション</a>
           </p>
         </div>
