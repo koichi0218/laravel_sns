@@ -18,7 +18,12 @@
           ユーザープロフィール
           </a>
         </li>
-        <li>ログアウト</li>
+        <li>
+          <form action="{{ route('logout') }}" method="post">
+            @csrf
+            <input type="submit" value="ログアウト">
+          </form>
+        </li>
         <li>{{\Auth::user()->name}}</li>
     </ul>
 </header>
