@@ -3,7 +3,7 @@
 @section('content')
 <body class="login-img">
 
-  <div class = "container">
+  <div class = "container login_container">
    	<div class= "wrapper">
    	  <form method="POST" action="{{route('login')}}" name="Login_Form" class="form-signin">
    	    @csrf     

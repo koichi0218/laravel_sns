@@ -1,10 +1,15 @@
-.header_nav {
-  display: flex;
-  list-style: none;
-  padding-left: 0;
+/*header*/
+.site-header {
+  background-color: rgba(0, 0, 0, .85);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
 }
-.header_nav li {
-  margin-right: 30px;
+.site-header a {
+  color: #999;
+  transition: ease-in-out color .15s;
+}
+.site-header a:hover {
+  color: #fff;
+  text-decoration: none;
 }
 /* エラーメッセージ用のスタイル */
 .error {
@@ -87,9 +92,12 @@ input[type="password"] {
 
 /**/
 .login-img{
-background-image: url('../images/login2.png');
+background-image: url('../images/top.jpeg');
 background-size: cover;
 background-repeat: no-repeat;
 height: 100%;
 font-family: 'Numans', sans-serif;
+}
+.form-signin{
+   background-color: rgba(0,0,0,0.14);
 }
