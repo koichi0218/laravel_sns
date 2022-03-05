@@ -1,15 +1,16 @@
 @extends('layouts.not_logged_in')
  
 @section('content')
-
+<div class="login-img">
  <div class="container">
+    <div class="wrapper">
       <h1>ユーザー登録フォーム</h1>
       <form method ="POST" action="{{route('register')}}">
         @csrf
         <div class="form-group">
           <label for="inputName">ユーザー</label>
           <input type="text" name="name" class="form-control" id="inputName" aria-describedby="nameHelp" placeholder="ユーザー名">
-          <small id="nameHelp" class="form-text text-muted">6文字以上16文字以内の半角英数字。記号等は使用できません</small>
+          <small id="nameHelp" class="form-text text-muted">6文字以上16文字以内の半角英数字。</small>
         </div>
         <div class="form-group">
           <label for="inputEmail">Email</label>
@@ -28,7 +29,8 @@
         <button type="submit" class="btn btn-primary">登録</button>
       </form>
     </div>
-
+  </div>
+</div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
