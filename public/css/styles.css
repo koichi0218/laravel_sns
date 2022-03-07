@@ -68,26 +68,8 @@ input[type="password"] {
   background-image: linear-gradient(to right, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
 }
 
-/*いいねボタン*/
-.like_button {
-  cursor: pointer;
-}
-.like {
-  display: inline;
-}
-.like_post {
-    background-color: #dccaca;
-    border-top: solid 1px #e67c2e;
-    border-bottom: solid 1px #e67c2e;
-}
-.like_post .post_body_heading {
-    background-color: #dccaca;
-}
-.like_post .post_comments {
-    background-color: #e4d6c7;
-}
-.like_post .like_button {
-    color: yellow;
+.liked {
+  color: red;
 }
 
 /**/

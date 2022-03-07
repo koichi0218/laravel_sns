@@ -166,25 +166,43 @@ class PostController extends Controller
     }
     
     
-    public function toggleLike($id){
+    // public function toggleLike($id){
+    //       $user = \Auth::user();
+    //       $post = Post::find($id);
+ 
+    //       if($post->isLikedBy($user)){
+    //           // いいねの取り消し
+    //           $post->likes->where('user_id', $user->id)->first()->delete();
+    //           \Session::flash('success', 'いいねを取り消しました');
+    //       } else {
+    //           // いいねを設定
+    //           Like::create([
+    //               'user_id' => $user->id,
+    //               'post_id' => $post->id,
+    //           ]);
+    //           \Session::flash('success', 'いいねしました');
+    //       }
+    //       return redirect('/posts');
+    //   }
+    
+    public function toggleLikeApi($id){
           $user = \Auth::user();
           $post = Post::find($id);
  
           if($post->isLikedBy($user)){
               // いいねの取り消し
               $post->likes->where('user_id', $user->id)->first()->delete();
-              \Session::flash('success', 'いいねを取り消しました');
+              $result = 'notlike';
           } else {
               // いいねを設定
               Like::create([
                   'user_id' => $user->id,
                   'post_id' => $post->id,
               ]);
-              \Session::flash('success', 'いいねしました');
+              $result = 'like';
           }
-          return redirect('/posts');
+            return $result;
       }
-    
     public function __construct()
     {
         $this->middleware('auth');
