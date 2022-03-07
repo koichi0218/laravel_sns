@@ -8,10 +8,6 @@
         <div class="container">
           <h1 class="jumbotron-heading">タイトル</h1>
           <p class="lead text-muted">内容や作成者など, 以下のコレクションに関する簡単な説明文を書きましょう。</p>
-          <p>
-            <a href="#" class="btn btn-primary my-2">メインアクション</a>
-            <a href="#" class="btn btn-secondary my-2">サブアクション</a>
-          </p>
         </div>
       </section>
       <div class="album py-5 bg-light">
@@ -26,16 +22,14 @@
                   <img src="{{ asset('images/no_image.png') }}">
                 @endif
                 <div class="card-body">
-                  <a class="like_button">{{ $post->isLikedBy(Auth::user()) ? '♥' : '♡' }}</a>
-                  <form method="post" class="like" action="{{ route('posts.toggle_like', $post) }}">
-                    @csrf
-                    @method('patch')
-                  </form>
+                  <div class="liked">
+                  <span class="like_toggle" data-post-id="{{ $post->id }}">{{ $post->isLikedBy(Auth::user()) ? '♥' : '♡' }}</span>
+                  </div>
                   <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                   <p class="card-text">123</p>
                   <div class="d-flex justify-content-between align-items-center">
                     <!-- <small class="text-muted">9 mins</small> -->
-                    <small class="text-muted">9分</small>
+                    <small class="text-muted">{{$post->created_at}}</small>
                   </div>
                 </div>
               </div>
@@ -47,23 +41,37 @@
         </div>
       </div>
     </main>
-    
-    <script src="../../assets/js/vendor/holder.min.js"></script>
-    
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script>
-      window.jQuery || document.write('<script src="/docs/4.5/assets/js/vendor/jquery-slim.min.js"><\/script>')
-    </script><script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script><script src="/docs/4.5/assets/js/vendor/anchor.min.js"></script>
-    <script src="/docs/4.5/assets/js/vendor/clipboard.min.js"></script>
-    <script src="/docs/4.5/assets/js/vendor/bs-custom-file-input.min.js"></script>
-    <script src="/docs/4.5/assets/js/src/application.js"></script>
-    <script src="/docs/4.5/assets/js/src/search.js"></script>
-    <script src="/docs/4.5/assets/js/src/ie-emulation-modes-warning.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script>
-    /* global $ */
-     $('.like_button').on('click', (event) => {
-      $(event.currentTarget).next().submit();
+  <script>
+
+    $(function () {
+    let like = $('.like_toggle');
+    let likePostId;
+    like.on('click', function () {
+      let $this = $(this);
+      likePostId = $this.data('post-id');
+      //ajax処理スタート
+      $.ajax({
+        //headers: {
+          //'X-CSRF-TOKEN' : $('meta[name="csrf-token"]').attr('content')
+        //},
+        url: '/posts/' + likePostId + '/toggle_like_api',
+        method: 'GET',
+        data: {
+          'post_id': likePostId
+        },
       })
-</script>
+      //通信成功した時の処理
+      .done(function (data) {
+        $this.toggleClass('liked');
+        console.log('done');
+        console.log(data);
+        $this.text(data === 'like' ? '♥' : '♡');
+      })
+      //通信失敗した時の処理
+      .fail(function () {
+        console.log('fail'); 
+      });
+    });
+  });
+  </script>
 @endsection

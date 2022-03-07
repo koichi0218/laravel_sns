@@ -30,7 +30,8 @@ Route::resource('users', 'UserController')->only([
   'show',
 ]);
 
-Route::post('like', 'PostController@like')->name('reviews.like');
+Route::get('/posts/{post}/toggle_like_api', 'PostController@toggleLikeApi')->name('posts.toggle_like_api');
+
 Route::patch('/posts/{post}/toggle_like', 'PostController@toggleLike')->name('posts.toggle_like');
 
 
