@@ -1,25 +1,31 @@
 @extends('layouts.default')
  
 @section('header')
-<nav class="site-header sticky-top py-1">
-  <div class="container d-flex flex-column flex-md-row justify-content-between">
-    <a class="py-2" href="#">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="d-block mx-auto"><circle cx="12" cy="12" r="10"></circle><line x1="14.31" y1="8" x2="20.05" y2="17.94"></line><line x1="9.69" y1="8" x2="21.17" y2="8"></line><line x1="7.38" y1="12" x2="13.12" y2="2.06"></line><line x1="9.69" y1="16" x2="3.95" y2="6.06"></line><line x1="14.31" y1="16" x2="2.83" y2="16"></line><line x1="16.62" y1="12" x2="10.88" y2="21.94"></line></svg>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{{ route('posts.index')}}">
+      <img src="{{ asset('images/fav/favicon2.png') }}"  width="30" height="24" class="d-inline-block align-text-top">
+      サイト名
     </a>
-    <!-- <a class="py-2 d-none d-md-inline-block" href="#">Tour</a> -->
-    <a class="py-2 d-none d-md-inline-block" href="#">ツアー</a>
-    <!-- <a class="py-2 d-none d-md-inline-block" href="#">Product</a> -->
-    <a class="py-2 d-none d-md-inline-block" href="#">プロダクト</a>
-    <!-- <a class="py-2 d-none d-md-inline-block" href="#">Features</a> -->
-    <a class="py-2 d-none d-md-inline-block" href="#">特徴</a>
-    <!-- <a class="py-2 d-none d-md-inline-block" href="#">Enterprise</a> -->
-    <a class="py-2 d-none d-md-inline-block" href="#">エンタープライズ</a>
-    <!-- <a class="py-2 d-none d-md-inline-block" href="#">Support</a> -->
-    <a class="py-2 d-none d-md-inline-block" href="#">サポート</a>
-    <!-- <a class="py-2 d-none d-md-inline-block" href="#">Pricing</a> -->
-    <a class="py-2 d-none d-md-inline-block" href="#">価格</a>
-    <!-- <a class="py-2 d-none d-md-inline-block" href="#">Cart</a> -->
-    <a class="py-2 d-none d-md-inline-block" href="#">カート</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">マイページ</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">お気に入り</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#"> 投稿一覧</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">このサイトについて</a>
+        </li>
+      </ul>
+    </div>
   </div>
 </nav>
 @endsection
