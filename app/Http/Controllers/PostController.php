@@ -19,7 +19,7 @@ class PostController extends Controller
     //投稿一覧
     public function index()
     {
-        $posts = Post::all();
+        $posts = Post::withCount('likes')->orderBy('id', 'desc')->paginate(20);
         return view('posts.index',[
            'title' => '投稿一覧', 
            'posts' => $posts,
@@ -201,7 +201,7 @@ class PostController extends Controller
               ]);
               $result = 'like';
           }
-            return $result;
+        return $result;
       }
     public function __construct()
     {
