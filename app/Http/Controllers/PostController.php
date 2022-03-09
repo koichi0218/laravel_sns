@@ -75,8 +75,10 @@ class PostController extends Controller
     //投稿詳細
     public function show($id)
     {
+        $post = Post::find($id);
         return view('posts.show',[
            'title' => '投稿詳細', 
+           'post' => $post,
         ]);
     }
 
