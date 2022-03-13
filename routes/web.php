@@ -29,13 +29,16 @@ Route::patch('/users/edit_image', 'UserController@updateImage')->name('users.upd
 Route::resource('users', 'UserController')->only([
   'show',
 ]);
+Route::get('users/{id}/user_show', 'UserController@user_show')->name('users.user_show');
 
+Route::resource('likes', 'LikeController')->only([
+  'index',
+]);
 Route::get('/posts/{post}/toggle_like_api', 'PostController@toggleLikeApi')->name('posts.toggle_like_api');
-
 Route::patch('/posts/{post}/toggle_like', 'PostController@toggleLike')->name('posts.toggle_like');
 
 
 Route::resource('follows', 'FollowController')->only([
    'index', 'store', 'destroy' 
 ]);
-Route::get('/follower', 'FollowController@followerIndex');
+Route::get('/follower', 'FollowController@followerIndex')->name('follower.index');

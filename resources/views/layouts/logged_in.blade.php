@@ -17,7 +17,7 @@
           <a class="nav-link active" aria-current="page" href="{{ route('users.show', \Auth::user())}}">マイページ</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">お気に入り</a>
+          <a class="nav-link" href="{{ route('likes.index')}}">お気に入り</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{{ route('posts.index')}}"> 投稿一覧</a>
@@ -26,7 +26,7 @@
           <form class="nav-link" action="{{ route('logout')}}" method="POST">
             @csrf
             <input type="submit" value="ログアウト">
-          </from>
+          </form>
         </li>
         <li class="nav-item">
           <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">このサイトについて</a>

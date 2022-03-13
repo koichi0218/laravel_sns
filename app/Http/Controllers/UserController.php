@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Post;
+use App\Follow;
 use App\Http\Requests\UserRequest;
 use App\Http\Requests\UserImageRequest;
 
@@ -12,9 +14,26 @@ class UserController extends Controller
     public function show($id)
     {
         $user = User::find($id);
+        $posts = Post::where('user_id', '=', $user->id)->get();
+        $follow_user = Follow::where('user_id', '=', $user->id)->count();
+        $follower = \Auth::user()->followers->count();
+        $like_posts = \Auth::user()->likeposts->count();
         return view('users.show',[
-           'title' => 'ユーザー情報', 
+           'title' => 'マイプロフィール', 
            'user' => $user,
+           'posts' => $posts,
+           'follow_user' => $follow_user,
+           'follower' => $follower,
+           'like_posts' => $like_posts,
+        ]);
+    }
+    
+    public function user_show($id)
+    {
+        $user = User::find($id);
+        return view('users.user_show',[
+          'title' => 'ユーザー情報', 
+          'user' => $user,
         ]);
     }
     

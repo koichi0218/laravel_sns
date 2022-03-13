@@ -19,7 +19,7 @@ class PostController extends Controller
     //投稿一覧
     public function index()
     {
-        $posts = Post::withCount('likes')->orderBy('id', 'desc')->paginate(20);
+        $posts = Post::where('user_id', '!=', \Auth::user()->id)->paginate(20);
         return view('posts.index',[
            'title' => '投稿一覧', 
            'posts' => $posts,
@@ -56,11 +56,10 @@ class PostController extends Controller
             $path = $image->store('photos', 'public');
         }
         
-        
         Post::create([
-           'user_id' => \Auth::user()->id,
-           'comment' => $request->comment,
-           'image' => $path,
+          'user_id' => \Auth::user()->id,
+          'comment' => $request->comment,
+          'image' => $path,
         ]);
         session()->flash('success', '投稿を追加しました');
         return redirect()->route('posts.index');
@@ -76,9 +75,11 @@ class PostController extends Controller
     public function show($id)
     {
         $post = Post::find($id);
+        $user = $post->user;
         return view('posts.show',[
            'title' => '投稿詳細', 
            'post' => $post,
+           'user' => $user,
         ]);
     }
 
