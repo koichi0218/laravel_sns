@@ -4,7 +4,7 @@
  
 @section('content')
 <div class="container">
-  <div class="row d-block mx-auto">
+  <div class="row d-block mx-auto w-75">
     <div class="card">
       @if($user->image !== '')
         <img class="bd-placeholder-img card-img-top" src="{{ \Storage::url($user->image) }}">
