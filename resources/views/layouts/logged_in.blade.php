@@ -1,7 +1,7 @@
 @extends('layouts.default')
  
 @section('header')
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light site-header sticky-top py-1">
   <div class="container-fluid">
     <a class="navbar-brand" href="{{ route('posts.index')}}">
       <img src="{{ asset('images/fav/favicon2.png') }}"  width="30" height="24" class="d-inline-block align-text-top">
@@ -23,13 +23,13 @@
           <a class="nav-link" href="{{ route('posts.index')}}"> 投稿一覧</a>
         </li>
         <li class="nav-item">
-          <form class="nav-link" action="{{ route('logout')}}" method="POST">
-            @csrf
-            <input type="submit" value="ログアウト">
-          </form>
+          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">このサイトについて</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">このサイトについて</a>
+          <form class="nav-link" action="{{ route('logout')}}" method="POST">
+            @csrf
+            <input type="submit" value="ログアウト" class="btn btn-secondary">
+          </form>
         </li>
       </ul>
     </div>

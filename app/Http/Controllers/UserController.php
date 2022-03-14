@@ -31,9 +31,11 @@ class UserController extends Controller
     public function user_show($id)
     {
         $user = User::find($id);
+        $posts = Post::where('user_id', '=', $user->id)->get();
         return view('users.user_show',[
           'title' => 'ユーザー情報', 
           'user' => $user,
+          'posts' => $posts,
         ]);
     }
     

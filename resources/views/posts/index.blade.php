@@ -26,7 +26,6 @@
                   <img src="{{ asset('images/no_image.png') }}">
                 @endif
                 <div class="card-body align-text-bottom">
-                  
                 </div>
                 <div class="card-footer">
                   <div class="liked">
