@@ -2,7 +2,7 @@
  
 @section('content')
 <div class="container">
-    <div class="card mb-3">
+    <div class="row d-block mx-auto w-75">
     <h2>現在の画像</h2>
         @if($user->image !== '')
             <img src="{{ \Storage::url($user->image) }}" class="img-fluid" alt="Responsive image">
@@ -20,6 +20,23 @@
             </div>
             <input type="submit" value="更新">
         </form>
+        <img id="preview" width="75%">
     </div>
 </div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script>
+    $(function(){
+      $("[name='image']").on('change', function (e) {
+        
+        var reader = new FileReader();
+        
+        reader.onload = function (e) {
+            $("#preview").attr('src', e.target.result);
+        }
+     
+        reader.readAsDataURL(e.target.files[0]);   
+     
+      });
+    });
+</script>
 @endsection
