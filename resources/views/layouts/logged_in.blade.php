@@ -4,8 +4,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light site-header sticky-top py-1">
   <div class="container-fluid">
     <a class="navbar-brand" href="{{ route('posts.index')}}">
-      <img src="{{ asset('images/fav/favicon2.png') }}"  width="30" height="24" class="d-inline-block align-text-top">
-      サイト名
+      <img src="{{ asset('images/fav/logo.jpg') }}"  width="250" height="50" class="d-inline-block align-text-top">
     </a>
     <button type="button" class="btn btn-outline-primary" onclick="location.href='{{ route('posts.create')}}'">作品を投稿</button>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,4 +34,17 @@
     </div>
   </div>
 </nav>
+@endsection
+
+@section('footer')
+  <div class="footer container-fluid text-center">
+    <ul class="list-unstyled d-md-flex justify-content-center pt-3">
+        <li class="p-2"><a href="{{ route('terms.guide') }}" class="text-secondary">当サイトについて</a></li>
+        <li class="p-2"><a href="" class="text-secondary">利用規約</a></li>
+        <li class="p-2"><a href="" class="text-secondary">プライバシーポリシー</a></li>
+    </ul>
+    <div class="pb-5">
+      <small>testtest</small>
+    </div>
+  </div>
 @endsection

@@ -19,7 +19,7 @@ class PostController extends Controller
     //投稿一覧
     public function index()
     {
-        $posts = Post::where('user_id', '!=', \Auth::user()->id)->paginate(20);
+        $posts = Post::latest('created_at')->paginate(20);
         return view('posts.index',[
            'title' => '投稿一覧', 
            'posts' => $posts,
