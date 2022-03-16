@@ -44,3 +44,8 @@ Route::get('/follower', 'FollowController@followerIndex')->name('follower.index'
 
 //利用規約等
 Route::get('/terms', 'TermsController@guide')->name('terms.guide');
+Route::get('/terms/rule', 'TermsController@rule')->name('terms.rule');
+Route::get('/terms/privacy', 'TermsController@praivacy')->name('terms.privacy');
+//お問い合わせ
+Route::get('/contacts', 'ContactController@create')->name('contacts.create');
+Route::post('/contacts', 'ContactController@store')->name('contacts.store');

@@ -191,7 +191,7 @@ class PostController extends Controller
     public function toggleLikeApi($id){
           $user = \Auth::user();
           $post = Post::find($id);
- 
+          $post_id = Like::where('user_id', $user->id)->where('post_id', $post)->first();
           if($post->isLikedBy($user)){
               // いいねの取り消し
               $post->likes->where('user_id', $user->id)->first()->delete();
