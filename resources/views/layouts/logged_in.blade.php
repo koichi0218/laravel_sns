@@ -22,7 +22,7 @@
           <a class="nav-link" href="{{ route('posts.index')}}"> 投稿一覧</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">このサイトについて</a>
+          <a class="nav-link" href="{{ route('terms.guide') }}"> このサイトについて</a>
         </li>
         <li class="nav-item">
           <form class="nav-link" action="{{ route('logout')}}" method="POST">
@@ -40,8 +40,9 @@
   <div class="footer container-fluid text-center">
     <ul class="list-unstyled d-md-flex justify-content-center pt-3">
         <li class="p-2"><a href="{{ route('terms.guide') }}" class="text-secondary">当サイトについて</a></li>
-        <li class="p-2"><a href="" class="text-secondary">利用規約</a></li>
+        <li class="p-2"><a href="{{ route('terms.rule') }}" class="text-secondary">利用規約</a></li>
         <li class="p-2"><a href="" class="text-secondary">プライバシーポリシー</a></li>
+         <li class="p-2"><a href="{{ route('contacts.create')}}" class="text-secondary">お問い合わせ</a></li>
     </ul>
     <div class="pb-5">
       <small>testtest</small>

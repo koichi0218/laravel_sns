@@ -12,5 +12,10 @@ class TermsController extends Controller
         ]);
     }
     
+    public function rule(){
+        return view('terms.rule',[
+           'title' => '利用規約',
+        ]);
+    }
     
 }

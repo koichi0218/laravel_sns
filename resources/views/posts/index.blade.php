@@ -45,13 +45,4 @@
         </div>
       </div>
     </main>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script>
-    /* global $ */
-    $('.like_button').each(function(){
-      $(this).on('click', function(){
-        $(this).next().submit();
-      });
-    });
-  </script>
 @endsection
