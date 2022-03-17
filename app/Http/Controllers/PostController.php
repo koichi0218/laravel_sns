@@ -75,7 +75,7 @@ class PostController extends Controller
     public function show($id)
     {
         $post = Post::find($id);
-        $user = $post->user;
+        $user = \Auth::user();
         return view('posts.show',[
            'title' => '投稿詳細', 
            'post' => $post,
@@ -125,13 +125,14 @@ class PostController extends Controller
     public function destroy($id)
     {
         $post = Post::find($id);
+        $user = \Auth::user();
         // 画像の削除
         if($post->image !== ''){
           \Storage::disk('public')->delete($post->image);
         }
         $post->delete();
         \Session::flash('success','投稿を削除しました');
-        return redirect()->route('posts.index');
+        return redirect()->route('users.show', $user);
     }
     
     public function editImage($id){

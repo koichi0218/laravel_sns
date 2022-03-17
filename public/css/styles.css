@@ -70,7 +70,10 @@ input[type="password"] {
 
 .liked {
   color: red;
+  cursor: pointer;
+  cursor: hand;
 }
+
 
 /**/
 .login-img{
