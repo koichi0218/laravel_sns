@@ -90,7 +90,7 @@
                 <h4 class="mt-3">第10条（お問い合わせ窓口）</h4>
                 <p>本ポリシーに関するお問い合わせは，下記までお願いいたします。</p>
                 <p>
-                    <a href="">お問い合わせ</a>
+                    <a href="{{ route('contacts.create')}}">お問い合わせ</a>
                 </p>
     
                 <p class="text-right mt-5">以上</p>

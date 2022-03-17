@@ -18,4 +18,9 @@ class TermsController extends Controller
         ]);
     }
     
+     public function privacy(){
+        return view('terms.privacy',[
+           'title' => 'プライバシーポリシー',
+        ]);
+    }
 }

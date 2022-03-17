@@ -9,12 +9,10 @@
    	    @csrf     
    		    <h3 class="form-signin-heading">サインイン</h3>
    			  <hr class="colorgraph"><br>
-   			  
    			  <input type="text" class="form-control" name="email" placeholder="email">
    			  <input type="password" class="form-control" name="password" placeholder="password">     		  
-   			 
    			  <button class="btn btn-lg btn-primary btn-block"  name="Submit" value="Login" type="Submit">ログイン</button>  			
-   		</form>			
+   		</form>
    	</div>
   </div>
 </body>

@@ -12,8 +12,8 @@
         <img src="{{ asset('images/no_user_image.png') }}">
       @endif
       <div class="card-body">
-        <h5 class="card-title">{{$user->name}}</h5>
-        <p class="card-text">{{$user->profile}}</p>
+        <h5 class="card-title">ユーザー名: {{$user->name}}</h5>
+        <p class="card-text">プロフィール: {{$user->profile}}</p>
       </div>
       <ul class="list-group list-group-flush">
         <li class="list-group-item">フォロー数: <a href="{{ route('follows.index')}}">{{$follow_user}}</a></li>
@@ -49,6 +49,18 @@
                   <p class="card-text">{{ $post->comment}}</p>
                   <p class="card-text">{{$post->user->name}}</p>
                   <small class="text-muted">{{$post->created_at}}</small>
+                  <div class="btn-toolbar">
+                    <div class="input-group">
+                      <a href="{{ route('posts.edit', $post)}}" role="button" class="btn btn-outline-info">投稿編集</a>
+                    </div>
+                    <div class="input-group">
+                      <form method="post" class="delete" action="{{ route('posts.destroy', $post) }}">
+                      @csrf
+                      @method('delete')
+                      <button type="submit" class=" btn btn-danger">削除</button>
+                      </form>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
