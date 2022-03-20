@@ -4,16 +4,6 @@
  
 @section('content')
     <main role="main">
-<!--<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">-->
-  <!-- スライドさせる画像の設定 -->
-<!--  @foreach($posts as $post)-->
-<!--  <div class="carousel-inner">-->
-<!--    <div class="carousel-item active">-->
-<!--      <img src="{{ \Storage::url($post->image) }}" class="d-block w-100">-->
-<!--    </div><!-- /.carousel-item -->
-<!--  </div><!-- /.carousel-inner -->
-<!--  @endforeach-->
-<!--</div><!-- /.carousel -->
       <div class="album py-5 bg-light">
         <div class="container">
           <div class="row">
