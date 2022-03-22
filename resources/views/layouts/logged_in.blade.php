@@ -48,4 +48,5 @@
       <small>Copyright © 2022 yurukaki All Rights Reserved.</small>
     </div>
   </div>
+  
 @endsection
