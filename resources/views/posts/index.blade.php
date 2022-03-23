@@ -13,7 +13,7 @@
                 @if($post->image !== '')
                   <a href="{{ route('posts.show', $post)}}"><img class="card-img-top" src="{{ \Storage::url($post->image) }}" alt="Card image cap"></a>
                 @else
-                  <img src="{{ asset('images/no_image.png') }}">
+                  <img src="{{ asset('images/no_image.png')}}">
                 @endif
                 <div class="card-body align-text-bottom">
                 </div>
