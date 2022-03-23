@@ -11,7 +11,7 @@
             <div class="col-md-4">
               <div class="card mb-4 shadow-sm h-100">
                 @if($post->image !== '')
-                  <a href="{{ route('posts.show', $post)}}"><img class="card-img-top" src="{{ \Storage::url($post->image) }}" alt="Card image cap"></a>
+                  <a href="{{ route('posts.show', $post)}}"><img class="card-img-top" src="{{ asset('storage/'. $post->image) }}" alt="Card image cap"></a>
                 @else
                   <img src="{{ asset('images/no_image.png')}}">
                 @endif
