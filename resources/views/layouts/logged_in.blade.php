@@ -4,7 +4,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light site-header sticky-top py-1">
   <div class="container-fluid">
     <a class="navbar-brand" href="{{ route('posts.index')}}">
-      <img src="{{ asset('public/images/fav/logo.jpg') }}"  width="250" height="50" class="d-inline-block align-text-top">
+      <img src="{{ asset('images/fav/logo.jpg') }}"  width="250" height="50" class="d-inline-block align-text-top">
     </a>
     <button type="button" class="btn btn-outline-primary" onclick="location.href='{{ route('posts.create')}}'">作品を投稿</button>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
