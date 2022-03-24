@@ -17,12 +17,13 @@
                     画像を選択:
                     <input type="file" name="image">
                 </label>
+                <img id="preview" width="75%">
             </div>
-            <input type="submit" value="更新">
+            <button type="submit" class="btn btn-primary">更新</button>
         </form>
-        <img id="preview" width="75%">
     </div>
 </div>
+
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script>
     $(function(){
