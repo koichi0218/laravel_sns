@@ -14,7 +14,7 @@
         </div>
         <div class="form-group">
           <label>画像:</label>
-          <input type="file" name="image" class="form-control">
+          <input type="file" name="image" class="form-control" required>
           <img id="preview" width="75%">
         </div>
         <button type="submit" class="btn btn-primary">投稿</button>
