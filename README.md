@@ -51,3 +51,13 @@
 # ゆるかきURL
 
 http://yurukaki.conohawing.com
+
+ゲスト用ログイン
+
+メールアドレス
+
+gest@gest.com
+
+パスワード
+
+gest1234
