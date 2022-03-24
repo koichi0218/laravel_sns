@@ -26,7 +26,6 @@ class PostRequest extends FormRequest
         return [
             'comment' => ['required', 'max:200'],
             'image' => [
-              'required',
               'file', // ファイルがアップロードされている
               'image', // 画像ファイルである
               'mimes:jpeg,jpg,png', // 形式はjpegかpng
