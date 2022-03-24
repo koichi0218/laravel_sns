@@ -5,7 +5,7 @@
 @section('content')
   <h1>{{ $title }}</h1>
   <div class="card text-center">
-  <div class="card-body">
+  <div class="card-body w-75">
     @if($post->image !== '')
        <img class="card-img-top" src="{{ \Storage::url($post->image) }}" alt="Card image cap">
     @else
